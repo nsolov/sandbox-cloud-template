@@ -15,7 +15,7 @@ jobs:
       namespace: dev-cloud-workload
       persistence: true
       memory: 1Gi
-      port: 8081
+      #port: 8081
     secrets:
       SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
       ## Optional
