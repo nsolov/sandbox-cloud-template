@@ -6,6 +6,8 @@ FROM $IMAGE
 
 WORKDIR /home/irisowner/dev
 
+COPY ./web /home/irisowner/web
+
 RUN --mount=type=bind,src=.,dst=. \
     iris start IRIS && \
 	iris session IRIS < iris.script && \
