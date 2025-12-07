@@ -11,7 +11,7 @@ jobs:
   deploy:
     uses: intersystems-community/demo-deployment/.github/workflows/deployment.yml@master
     with:
-      name: ns2
+      name: ns3
       namespace: dev-cloud-workload
       persistence: true
       memory: 1Gi
