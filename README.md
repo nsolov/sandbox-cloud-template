@@ -61,3 +61,7 @@ This repository is a template for deploying an InterSystems IRIS application to 
 11. Check the status of your deployment. The deployment update may take several minutes:
 
     <https://cloud.sandbox.developer.intersystems.com/portal/deployments>
+
+## Configuration Reference
+
+For a reference explanation of the IRIS configuration merge file used by this template, see [What `myapp.cpf` Is For](MYAPP_CPF.md).
