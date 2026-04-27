@@ -1,0 +1,9 @@
+[Actions]
+CreateDatabase:Name=MYAPP,Directory=/usr/irissys/mgr/MYAPP
+CreateNamespace:Name=MYAPP,Globals=MYAPP,Routines=MYAPP,Interop=1
+
+CreateDatabase:Name=MYAPP_DATAENSTEMP,Directory=/usr/irissys/mgr/MYAPP_DATAENSTEMP
+CreateDatabase:Name=MYAPP_DATASECONDARY,Directory=/usr/irissys/mgr/MYAPP_DATASECONDARY
+
+CreateApplication:Name=/myapp,NameSpace=MYAPP,Path=/usr/irissys/csp/myapp,CSPZENEnabled=1,Enabled=1,ServeFiles=1,AutheEnabled=64,Recurse=1
+CreateApplication:Name=/myapp/api,NameSpace=MYAPP,DispatchClass=Sandbox.Cloudsample.REST,CSPZENEnabled=1,Enabled=1,AutheEnabled=64,MatchRoles=:%All

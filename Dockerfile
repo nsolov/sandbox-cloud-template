@@ -4,11 +4,22 @@ ARG IMAGE=intersystemsdc/irishealth-community
 ARG IMAGE=intersystemsdc/iris-community
 FROM $IMAGE
 
-WORKDIR /home/irisowner/dev
+USER root
 
-COPY ./web /home/irisowner/web
 
-RUN --mount=type=bind,src=.,dst=. \
-    iris start IRIS && \
-	iris session IRIS < iris.script && \
-    iris stop IRIS quietly
+# Copy application sources and initialization assets
+COPY src /src
+COPY web /usr/irissys/csp/myapp
+COPY myapp.cpf /tmp/myapp.cpf
+COPY iris.script /tmp/iris.script
+
+RUN chown -R irisowner:irisowner /src /usr/irissys/csp/myapp /tmp/myapp.cpf /tmp/iris.script
+
+USER irisowner
+
+# Create MYAPP and import /src during image build.
+RUN iris start IRIS quietly \
+ && iris merge IRIS /tmp/myapp.cpf \
+ && iris session IRIS < /tmp/iris.script \
+ && iris stop IRIS quietly \
+ && rm /tmp/myapp.cpf /tmp/iris.script

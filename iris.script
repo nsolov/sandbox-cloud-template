@@ -1,10 +1,9 @@
-    zn "%SYS"
+ zn "%SYS"
+ write !,"Switching to MYAPP namespace",!
+ set $namespace="MYAPP"
 
-    // create IRISAPP namespace
-    do $SYSTEM.OBJ.Load("/home/irisowner/dev/App.Installer.cls", "ck")
-    set sc = ##class(App.Installer).setup()
+ write "Importing and compiling classes from /src",!
+ set sc = $system.OBJ.Import("/src","ck/recursive=1/extensions=cls/multicompile=0",,.errors,.imported)
 
-    zn "IRISAPP"
-
-    do $System.OBJ.Import("/home/irisowner/dev/src/sandbox","ck",,1)
-    halt
+ write "Import completed successfully",!!
+ halt
