@@ -12,7 +12,10 @@ XData UrlMap
 
 ClassMethod Test() As %Status
 {
-    write "{""status"":""OK""}"
+    set jo = {
+        "status": "OK"
+    }
+    write jo.%ToJSON()
     return $$$OK
 }
 

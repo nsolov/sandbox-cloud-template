@@ -6,18 +6,14 @@
       },
     "objectscript.conn" :{
         "active": true,
-        "ns": "IRISAPP",
+        "ns": "MYAPP",
         "username": "_SYSTEM",
-        "password": "SYS",
         "docker-compose": {
             "service": "iris",
             "internalPort": 52773
         },
         "links": {
-            "UnitTest Portal": "${serverUrl}/csp/sys/%25UnitTest.Portal.Home.cls?$NAMESPACE=IRISAPP",
             "Error Log": "${serverUrl}/csp/sys/op/UtilSysAppErrorNamespaces.csp"
         }
-    },
-    "intersystems.testingManager.client.relativeTestRoot": "tests"
-
+    }
 }
